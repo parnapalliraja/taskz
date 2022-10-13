@@ -10,9 +10,9 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-success">
         <div class="container">
-            <a href="/" class="navbar-brand">Taxkz</a>
+            <a href="/" class="navbar-brand">Taskz</a>
 
-            <button class="navbar-toggelr" data-bs toggler="collapse" data-base-target="#menu">
+            <button class="navbar-toggelr" data-bs-toggler="collapse" data-base-target="#menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -36,6 +36,45 @@
             <div class="col-md-12 text-center">
                 <h3 class="display-3 text-success">Task List</h3>
             </div>
+        </div>
+
+        <div class="row">
+            <% tasks.forEach((item,index) => { %>
+                <div class="col-md-4 mt-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="text-center"><%= item.title %></h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <details>
+                                        <summary>Content</summary>
+                                        <p class="text-justify"> <%= item.content %></p>
+                                    </details>
+                                </li>
+                                <li class="list-group-item">
+                                    <strong class="text-success">Start Date</strong>
+                                    <span class="float-end badge bg-success"><%= item.start %></span>
+                                </li>
+                                <li class="list-group-item">
+                                    <strong class="text-danger">End Date</strong>
+                                    <span class="float-end badge bg-danger"><%= item.end %></span>
+                                </li>
+                                <li class="list-group-item">
+                                    <strong class="text-primary">Created By</strong>
+                                    <span class="float-end badge bg-primary"><%= item.user %></span>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/update<%= item.id %>" class="btn btn-sm btn-outline-info">Edit</a>
+                            <a href="/delete<%= item.id %>" class="btn btn-sm btn-outline-danger float-end">Delete</a>
+                        </div>
+                    </div>
+                </div>
+           <% }) %>
         </div>
     </div>
     

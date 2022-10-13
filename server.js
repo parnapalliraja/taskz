@@ -5,6 +5,8 @@ const path = require('path')
 const assert = require('assert')
 const taskRoute = require('./route/taskRoute')
 
+const connectDb = require("./db/connect")
+
 const port = process.env.PORT || Number(5000)
 
 const app = express()
@@ -27,6 +29,7 @@ app.all('*', (req,res)=>{
 )
 
 app.listen(port,()=>{
+    connectDb()
     console.log(`server is running @ ${port}`)
 })
 
