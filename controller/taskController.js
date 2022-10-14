@@ -12,8 +12,10 @@ const taskController = {
     edit: async (req,res)=>{
         res.render('update')
     },
-    createTask:async (req,res)=>{
+    createTask: async (req,res)=>{
+
         //console.log("my data = ",req.body)
+        
         const {title,content,start,end,user} = req.body
         const newTask = Task({title, content, start, end, user})
 
